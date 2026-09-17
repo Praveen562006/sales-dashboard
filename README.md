@@ -448,7 +448,7 @@ If an interviewer asks **"Tell me about your project"**, you can say:
 
 **Your Name**
 
-GitHub: `https://github.com/YOUR_USERNAME`
+GitHub: `https://github.com/Praveen562006`
 
 ---
 

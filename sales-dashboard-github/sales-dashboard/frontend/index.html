@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SalesIQ — Business Sales Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<div class="app">
+    <aside class="sidebar">
+        <div class="brand"><span class="brand-mark">S</span><div><strong>SalesIQ</strong><small>Business Analytics</small></div></div>
+        <nav>
+            <a class="active" href="#"><span>▦</span> Overview</a>
+            <a href="#analytics"><span>◒</span> Analytics</a>
+            <a href="#products"><span>▣</span> Products</a>
+            <a href="#customers"><span>♙</span> Customers</a>
+            <a href="#transactions"><span>↔</span> Transactions</a>
+        </nav>
+        <div class="sidebar-bottom">
+            <div class="upgrade"><b>Pro Analytics</b><p>Turn sales data into decisions.</p><button>Explore</button></div>
+            <a href="#"><span>⚙</span> Settings</a>
+        </div>
+    </aside>
+
+    <main class="main">
+        <header class="topbar">
+            <div class="mobile-brand">SalesIQ</div>
+            <div class="search"><span>⌕</span><input id="search" placeholder="Search transactions, products..."></div>
+            <div class="top-actions"><button class="icon-btn">⌘</button><button class="icon-btn">◔</button><div class="avatar">AJ</div></div>
+        </header>
+
+        <section class="content">
+            <div class="page-head">
+                <div><p class="eyebrow">EXECUTIVE OVERVIEW</p><h1>Sales performance</h1><p class="subtitle">Monitor revenue, profitability and customer activity in one place.</p></div>
+                <div class="filters">
+                    <select id="period"><option value="all">All time</option><option value="30">Last 30 days</option><option value="90">Last 90 days</option></select>
+                    <select id="category"><option value="all">All categories</option><option>Technology</option><option>Furniture</option><option>Office Supplies</option></select>
+                    <button class="export" id="exportBtn">↓ Export</button>
+                </div>
+            </div>
+
+            <div class="kpis" id="kpis">
+                <div class="kpi"><div class="kpi-top"><span>Total Revenue</span><i>↗</i></div><strong id="revenue">₹0</strong><small class="positive">+12.8% <em>vs previous period</em></small></div>
+                <div class="kpi"><div class="kpi-top"><span>Orders</span><i>◫</i></div><strong id="orders">0</strong><small class="positive">+8.4% <em>vs previous period</em></small></div>
+                <div class="kpi"><div class="kpi-top"><span>Customers</span><i>♙</i></div><strong id="customers">0</strong><small class="positive">+6.2% <em>vs previous period</em></small></div>
+                <div class="kpi"><div class="kpi-top"><span>Net Profit</span><i>◇</i></div><strong id="profit">₹0</strong><small class="positive">+10.6% <em>vs previous period</em></small></div>
+            </div>
+
+            <div class="grid charts" id="analytics">
+                <section class="card large"><div class="card-head"><div><h2>Revenue overview</h2><p>Monthly revenue and profit trend</p></div><span class="legend"><i></i> Revenue <i></i> Profit</span></div><div class="chart-wrap"><canvas id="revenueChart"></canvas></div></section>
+                <section class="card"><div class="card-head"><div><h2>Sales by category</h2><p>Revenue contribution</p></div></div><div class="donut-wrap"><canvas id="categoryChart"></canvas><div class="donut-center"><strong id="categoryTotal">₹0</strong><span>Total sales</span></div></div><div id="categoryLegend" class="category-legend"></div></section>
+            </div>
+
+            <div class="grid lower">
+                <section class="card" id="products"><div class="card-head"><div><h2>Top products</h2><p>Highest revenue generating products</p></div><a href="#">View all →</a></div><div id="productsList" class="product-list"></div></section>
+                <section class="card"><div class="card-head"><div><h2>Regional performance</h2><p>Revenue by business region</p></div></div><div id="regionList" class="region-list"></div></section>
+            </div>
+
+            <section class="card transactions" id="transactions"><div class="card-head"><div><h2>Recent transactions</h2><p>Latest sales activity across the business</p></div><button class="outline" id="clearSearch">Clear search</button></div>
+                <div class="table-scroll"><table><thead><tr><th>Customer</th><th>Product</th><th>Category</th><th>Region</th><th>Amount</th><th>Status</th><th>Date</th></tr></thead><tbody id="transactionsBody"></tbody></table></div>
+            </section>
+            <footer>SalesIQ Dashboard <span>•</span> Built with Java + Spring Boot + JavaScript</footer>
+        </section>
+    </main>
+</div>
+<script src="js/dashboard.js"></script>
+</body>
+</html>
